@@ -674,7 +674,6 @@ public class AdminCommands
         GameConfig.Save();
 
         await GameData.CreateAsync();
-        await LocaleDataDownloader.DownloadAsync(CancellationToken.None);
 
         return RunCmdResponse.OK;
     }
