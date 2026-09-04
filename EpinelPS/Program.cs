@@ -28,6 +28,11 @@ internal class Program
             Console.WriteLine("This software is licensed under the AGPL-3.0 License");
             Console.WriteLine("Targeting game version " + GameConfig.Root.TargetVersion);
             Console.WriteLine("Git commit " + GitUpdateCheck.GitCommit);
+            if (!File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "gamecommon.json")))
+            {
+                Console.WriteLine("gamecommon.json does not exist, please go to our discord server for assistance");
+                return;
+            }
             
             if (args.Length == 0 || args[0] != "--headless")
                 await GitUpdateCheck.CheckForUpdates();
